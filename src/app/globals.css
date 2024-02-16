@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+div {
+  font-family: "Poppins", sans-serif;
+}
+
+li {
+  list-style: none;
+}
+
+.header {
+  width: 100%;
+  position: relative;
+}
+
+svg.drawsection {
+  grid-row: 1/span 2;
+  grid-column: 3/span 6;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 85vh;
+  overflow: hidden;
+}
+
+.zone {
+  display: block;
+}
+
+.to-erase {
+  clip-path: url("#clippath");
+  transform: translate3d(0, 0, 0);
+}
+
+div.to-erase {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: black;
+  color: white;
+}
+
+div.to-stay {
+  background: white;
+  color: black;
+}
+
+div.to-erase>p {
+  grid-row: 1/span 1;
+  grid-column: 3/span 6;
+  align-self: end;
+}
+
+div.to-erase>p:nth-child(2) {
+  grid-row: 2;
+  grid-column: 1/span 6;
+  align-self: baseline;
+}
+
+div.to-stay div,
+div.to-erase div {
+  grid-row: 3;
+  align-self: end;
+  font-size: 6vw;
+}
+
+div.to-stay,
+div.to-erase {
+  height: 85vh;
+  width: 100%;
+  padding: 0 1.5vw;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  font-family: sans-serif;
+  font-size: 3.5vw;
+}
+
+.hugeheadline {
+  overflow: hidden;
+  grid-column: 1/span 6;
+  width: 100%;
+}
+
+.line {
+  display: block;
+  text-align: start;
+  width: 100%;
+}
+
+.line p {
+  font-size: 10vw;
+}
+
+/*----menu part----*/
+
+section {
+  width: 100%;
+  display: grid;
+}
+
+section>div {
+  width: 80%;
+  margin: 0 auto;
+  padding: 10vh 0;
+}
+
+section>div>ul {
+  width: 100%;
+  margin: 8vh 0;
+}
+
+section>div>ul>li {
+  height: 200px;
+}
+
+section>div>ul>li>a {
+  display: grid;
+  grid-template-rows: repeat(1fr, 3);
+  height: 100%;
+  text-decoration: none;
+  color: black;
+  padding: 15px 0;
+}

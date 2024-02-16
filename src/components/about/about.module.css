@@ -1,0 +1,27 @@
+.about {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    opacity: 0;
+    transform: translateY(100px);
+}
+
+.about .about_left {
+    position: relative;
+    margin: 0 30px;
+}
+
+.about img {
+    width: 100%;
+    height: 60vh;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.about h2 {
+    text-transform: uppercase;
+    font-size: 40px;
+}
+
+.about p {
+    font-size: 20px;
+}

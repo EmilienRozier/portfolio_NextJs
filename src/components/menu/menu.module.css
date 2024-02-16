@@ -1,0 +1,31 @@
+.top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.center {
+    justify-self: flex-start;
+    align-self: center;
+    text-transform: uppercase;
+    font-size: 8vh;
+    height: auto;
+    overflow-y: hidden;
+}
+
+.bottom {
+    justify-self: flex-end;
+    align-self: flex-end;
+}
+
+.spacer {
+    height: 5px;
+    width: 0%;
+    background-color: black;
+    transition: 1s;
+}
+
+.slidein {
+    width: 100%;
+}
+
