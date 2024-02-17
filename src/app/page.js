@@ -6,6 +6,7 @@ import { useState } from "react";
 import Menu from "@/components/menu/menu";
 import About from "@/components/about/about";
 import Contact from "@/components/contact/contact";
+import Footer from "@/components/footer/footer";
 
 const Home = () => {
   const [menuState, setMenuState] = useState('close');
@@ -43,6 +44,7 @@ const Home = () => {
         <Menu/>
         <About />
         <Contact/>
+        <Footer />
       </section>
     </>
   );
