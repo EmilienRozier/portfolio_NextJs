@@ -38,6 +38,8 @@ export default function Menu() {
     //     { id: 2, title: "Blog next js", year: 2022, techno: ["nodejs", "nextjs", "scss"] }
     // ]
 
+    let i = 0;
+
     return (
         <>
             <div className={styles.travaux} id="travaux">
@@ -48,7 +50,7 @@ export default function Menu() {
                             <li>
                                 <a href={`/work/${pages._id}`}>
                                     <div className={styles.top}>
-                                        <p>{pages._id}</p>
+                                        <p>{'0' + (i += 1)}</p>
                                         <p>{pages.year}</p>
                                     </div>
                                     <div className={styles.center}>

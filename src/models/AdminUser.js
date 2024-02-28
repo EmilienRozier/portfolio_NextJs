@@ -1,11 +1,18 @@
-import mongoose from "mongoose"
+import mongoose, { Schema, models } from "mongoose";
 
-const AdminUsersSchema = new Schema({
-    username: String,
-    email: String,
-    pass: String
-});
+const userSchema = new Schema(
+    {
+        email: {
+            type: String,
+            required: true,
+        },
+        password: {
+            type: String,
+            required: true,
+        },
+    },
+    { timestamps: true }
+);
 
-const AdminUsers = mongoose.models.AdminUsers || mongoose.model('AdminUsers', AdminUsersSchema);
-
-export default AdminUsers;
+const User = models.User || mongoose.model("User", userSchema);
+export default User;
