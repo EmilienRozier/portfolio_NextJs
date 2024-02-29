@@ -3,12 +3,12 @@
 import { EditorContent, useEditor } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
 import { useSession } from 'next-auth/react'
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
-// Tiptap component
 const Tiptap = ({ id }) => {
 
-  const [editMode, setEditMode] = useState(false)
+  const [content, setContent] = useState()
+  const [newContent, setNewContent] = useState()
 
   const { data: session, status } = useSession()
 
@@ -16,12 +16,11 @@ const Tiptap = ({ id }) => {
     extensions: [
       StarterKit,
     ],
-    content: {"type":"doc","content":[{"type":"paragraph","content":[{"type":"text","text":"Hello World! 🌎️"}]}]},
-    editable: false
+    editable: false,
   })
 
   const editable = () => {
-    if(editor.isEditable === false) {
+    if (editor.isEditable === false) {
       editor.setEditable(true)
       console.log(JSON.stringify(editor.getJSON()))
     } else {
@@ -29,13 +28,54 @@ const Tiptap = ({ id }) => {
     }
   }
 
+  useEffect(() => {
+    async function getContent() {
+      const res = await fetch(`http://localhost:3000/api/works/${id}`);
+      const { works } = await res.json();
+      console.log(works.content)
+      setContent(works.content)
+      // const content = JSON.parse(works.content)
+      console.log(content)
+      if (editor && editor.commands) {
+        editor.commands.setContent(JSON.parse(works.content));
+      }
+    }
+
+    getContent()
+  }, [id, content])
+
+  const UpdateContent = () => {
+    console.log('tes')
+    const json = editor.getJSON()
+    setNewContent(JSON.stringify(json))
+  }
+
+  useEffect(() => {
+
+    async function saveContent() {
+
+      const res = await fetch(`http://localhost:3000/api/works/${id}`, {
+        method: 'PUT',
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify({ newContent }),
+      });
+    }
+
+    saveContent()
+    console.log(newContent)
+  }, [newContent])
+
   return (
     <>
-      {status === "authenticated" && (
-        <button onClick={editable}>editor mode</button>
-      )}
-
       <EditorContent editor={editor} />
+      {status === "authenticated" && (
+        <div>
+          <button onClick={editable}>editor mode</button>
+          <button onClick={UpdateContent}>save</button>
+        </div>
+      )}
       {id}
       {/* Additional UI components like FloatingMenu, BubbleMenu can be added here */}
     </>

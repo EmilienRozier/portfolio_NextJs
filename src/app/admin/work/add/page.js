@@ -6,7 +6,7 @@ export default function AdminPanel() {
     const [title, setTitle] = useState('');
     const [year, setYear] = useState('');
     const [techno, setTechno] = useState([]);
-    const [content, setContent] = useState([]);
+    const [content, setContent] = useState('');
 
     const addWork = async () => {
         const res = await fetch('http://localhost:3000/api/works/', {

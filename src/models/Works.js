@@ -4,7 +4,7 @@ const WorksSchema = new mongoose.Schema({
     title: String,
     year: Number,
     techno: Array,
-    content: Array,
+    content: String,
 })
 
 const Works = mongoose.models.Works || mongoose.model('Works', WorksSchema)
