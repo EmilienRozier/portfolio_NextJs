@@ -29,7 +29,7 @@ const Home = () => {
             <p>Emilien Rozier, développeur web,</p>
             <p>étudiant en 2ème année de BUT MMI à Troyes, originaire de Nevers et passionné par le monde du
               numérique
-              et de l'informatique.</p>
+              et de l&apos;informatique.</p>
             <div className="hugeheadline">
               <div className="line">
                 <p className="word">PORTFOLIO</p>

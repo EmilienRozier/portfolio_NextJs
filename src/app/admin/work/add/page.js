@@ -22,10 +22,13 @@ export default function AdminPanel() {
         <>
             Admin panel
             <form onSubmit={addWork}>
+                title :
                 <input onChange={(e) => setTitle(e.target.value)} value={title} />
+                year :
                 <input onChange={(e) => setYear(e.target.value)} value={year} />
+                techno :
                 <input onChange={(e) => setTechno(e.target.value)} value={techno} />
-                <input onChange={(e) => setContent(e.target.value)} value={''} type="hidden"/>
+
                 <button type="submit">Add</button>
             </form>
         </>

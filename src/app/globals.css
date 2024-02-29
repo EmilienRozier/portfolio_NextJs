@@ -131,3 +131,23 @@ section>div>ul>li>a {
   color: black;
   padding: 15px 0;
 }
+
+@media (max-width: 1100px) {
+  svg.drawsection {
+    display: none;
+  }
+
+  div.to-erase {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .to-erase p {
+    font-size: 30px;
+  }
+
+  .hugeheadline .word {
+    font-size: 50px;
+  }
+}

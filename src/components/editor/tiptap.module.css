@@ -1,0 +1,14 @@
+.tiptap {
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.tiptap .edit {
+    margin-top: 50px;
+}
+
+.tiptap h1 {
+    text-transform: uppercase;
+    margin-bottom: 25px;
+}

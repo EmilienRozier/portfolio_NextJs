@@ -1,5 +1,6 @@
 'use client'
 
+import styles from "./tiptap.module.css"
 import { EditorContent, useEditor } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
 import { useSession } from 'next-auth/react'
@@ -9,6 +10,7 @@ const Tiptap = ({ id }) => {
 
   const [content, setContent] = useState()
   const [newContent, setNewContent] = useState()
+  const [title, setTitle] = useState("")
 
   const { data: session, status } = useSession()
 
@@ -32,7 +34,9 @@ const Tiptap = ({ id }) => {
     async function getContent() {
       const res = await fetch(`http://localhost:3000/api/works/${id}`);
       const { works } = await res.json();
-      console.log(works.content)
+
+      setTitle(works.title)
+
       setContent(works.content)
       // const content = JSON.parse(works.content)
       console.log(content)
@@ -68,17 +72,17 @@ const Tiptap = ({ id }) => {
   }, [newContent])
 
   return (
-    <>
-      <EditorContent editor={editor} />
+    <div className={styles.tiptap}>
+      <h1>{title}</h1>
+      <EditorContent editor={editor}/>
       {status === "authenticated" && (
-        <div>
+        <div className={styles.edit}>
           <button onClick={editable}>editor mode</button>
           <button onClick={UpdateContent}>save</button>
         </div>
       )}
-      {id}
       {/* Additional UI components like FloatingMenu, BubbleMenu can be added here */}
-    </>
+    </div>
   )
 }
 
