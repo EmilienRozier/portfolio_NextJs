@@ -2,7 +2,8 @@ import Link from "next/link";
 
 const getWorks = async () => {
     try {
-        const res = await fetch("http://localhost:3000/api/works", {
+        const res = await fetch("http://localhost/api/works", {
+            mode: 'no-cors',
             cache: "no-store",
         });
 

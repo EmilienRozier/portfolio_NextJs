@@ -22,7 +22,7 @@ export default function Menu() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const res = await fetch('http://localhost:3000/api/works');
+                const res = await fetch('http://localhost/api/works', {mode: 'no-cors'});
                 const { works } = await res.json();
                 setPages(works);
             } catch (error) {

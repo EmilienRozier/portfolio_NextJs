@@ -32,7 +32,7 @@ const Tiptap = ({ id }) => {
 
   useEffect(() => {
     async function getContent() {
-      const res = await fetch(`http://localhost:3000/api/works/${id}`);
+      const res = await fetch(`http://localhost/api/works/${id}`, {mode: 'no-cors'});
       const { works } = await res.json();
 
       setTitle(works.title)
@@ -58,7 +58,7 @@ const Tiptap = ({ id }) => {
 
     async function saveContent() {
 
-      const res = await fetch(`http://localhost:3000/api/works/${id}`, {
+      const res = await fetch(`http://localhost/api/works/${id}`, {
         method: 'PUT',
         headers: {
           "Content-type": "application/json",

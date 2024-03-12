@@ -1,5 +1,6 @@
 "use client"
 
+import Router from "next/router";
 import { useState } from "react";
 
 export default function AdminPanel() {
@@ -8,8 +9,10 @@ export default function AdminPanel() {
     const [techno, setTechno] = useState([]);
     const [content, setContent] = useState('');
 
-    const addWork = async () => {
-        const res = await fetch('http://localhost:3000/api/works/', {
+    const addWork = async (e) => {
+        e.preventDefault();
+
+        const res = await fetch('http://localhost/api/works/', {
             method: 'POST',
             headers: {
                 "Content-type": "application/json",
